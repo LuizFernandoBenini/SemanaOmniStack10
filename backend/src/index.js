@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes');
+const cors = require('cors');
 const app = express();
 
 mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-cnblc.mongodb.net/week10?retryWrites=true&w=majority',
@@ -11,6 +12,7 @@ mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-cnblc.mongodb.net/w
    }
 );
 
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
